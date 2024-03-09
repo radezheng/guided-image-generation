@@ -1,3 +1,27 @@
+## 运行
+
+参考 .env.example 创建 .env 文件，填入相应的值. <br/>
+
+本地 
+```bash
+docker run  --env-file .env -p 8501:8501 radezheng/imagegen
+```
+
+Azure, 需先创建 app service plan, 如 `nextchatPlan`
+```bash
+
+#deploy the container to azure webapp
+az webapp create --resource-group rg-nextchat --plan nextchatPlan --name imgchat --deployment-container-image-name radezheng/imagegen
+
+#set all the environment variables in .env file to the webapp
+az webapp config appsettings set --resource-group rg-nextchat --name imgchat --settings $(cat .env | xargs)
+
+#set the running port to 8501
+az webapp config appsettings set --resource-group rg-nextchat --name imgchat --settings PORT=8501
+
+
+```
+
 # Guided Image Generator
 
 This app provides options for image generation based on a predefined theme and compliance regarding unwanted NSFW-content and organizational policies (e.g., avoid generation of competitor elements).
