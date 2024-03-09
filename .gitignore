@@ -1,0 +1,8 @@
+.env
+images/*
+*.sh
+*.zip
+*.log
+logs
+.DS_Store
+__pycache__
