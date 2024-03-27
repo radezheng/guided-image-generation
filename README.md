@@ -21,7 +21,9 @@ az webapp config appsettings set --resource-group rg-nextchat --name imgchat --s
 
 
 ```
-
+可以规避内容过滤的同时，按要求选择不同的风格生成。
+![image](./img/horse1.jpg)
+![image](./img/horse2.jpg)
 # Guided Image Generator
 
 This app provides options for image generation based on a predefined theme and compliance regarding unwanted NSFW-content and organizational policies (e.g., avoid generation of competitor elements).
